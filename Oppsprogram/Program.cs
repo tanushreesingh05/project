@@ -1,32 +1,87 @@
 ﻿using System;
-using System.Linq.Expressions;
 
 namespace Oppsprogram
 {
-    //Program of array data structure
+    // Program of stack DS
+    class MyStack
+    {
+        int maxsize;
+        int[] stackArray;
+        int top;
+
+        public MyStack(int size)
+        {
+            maxsize = size;
+            stackArray = new int[maxsize];
+            top = -1;
+        }
+
+        // Push operation
+        public void Push(int value)
+        {
+            if (IsFull())
+            {
+                Console.WriteLine("Stack is Full");
+                return;
+            }
+            top++;
+            stackArray[top] = value;
+        }
+
+        // Pop operation
+        public int Pop()
+        {
+            if (IsEmpty())
+            {
+                Console.WriteLine("Stack is Empty");
+                return -1;
+            }
+            int val = stackArray[top];
+            top--;
+            Console.WriteLine("Popped element: " + val);
+            return val;
+        }
+
+        // Peek operation
+        public int Peek()
+        {
+            if (IsEmpty())
+            {
+                Console.WriteLine("Stack is Empty");
+                return -1;
+            }
+            return stackArray[top];
+        }
+
+        // Utility function to check if the stack is empty
+        public bool IsEmpty()
+        {
+            return (top == -1);
+        }
+
+        // Utility function to check if the stack is full
+        public bool IsFull()
+        {
+            return (top == maxsize - 1);
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
         {
-            /*----------2D Array---------------*/
-            // Declare the array of two elements:
-            int[][] arr = new int[2][];
-            arr[0] = new int[5] { 1,2,3,4,5};
-            arr[1] = new int[4] { 10, 20, 30, 40 };
+            MyStack s = new MyStack(5);
 
-            for(int i = 0; i < arr.Length; i++)
-            {
-                Console.WriteLine("Element ["+ i +"] Array");
-                for(int j = 0; j < arr[i].Length; j++)
-                {
-                    Console.Write(arr[i][j] +" ");
+            s.Push(10);
+            s.Push(20);
+            s.Push(30);
 
-                }
-                Console.WriteLine();
+            Console.WriteLine("Top element: " + s.Peek());
 
-            }
+            s.Pop();
+            s.Pop();
 
-
+            Console.WriteLine("Top element after popping: " + s.Peek());
         }
     }
 }
