@@ -1,10 +1,11 @@
-Multidimensional Arrays
+Jagged Arrays
 
-The multi-dimensional array contains more than one row to store the values. It is also known as a Rectangular Array in C# because it’s each row length is same. It can be a 2D-array or 3D-array or more. To storing and accessing the values of the array, one required the nested loop. The multi-dimensional array declaration, initialization and accessing is as follows :
+An array whose elements are arrays is known as Jagged 
+arrays it means “array of arrays“. 
+The jagged array elements may be of different
+dimensions and sizes. Below are the examples to show
+how to declare, initialize, and access the jagged arrays.
 
-// creates a two-dimensional array of 
-// four rows and two columns.
-int[, ] intarray = new int[4, 2];
-
-//creates an array of three dimensions, 4, 2, and 3
-int[,, ] intarray1 = new int[4, 2, 3];
+It’s possible to mix jagged and multidimensional arrays. 
+The jagged array is an array of arrays, and therefore its 
+elements are reference types and are initialized to null. 
