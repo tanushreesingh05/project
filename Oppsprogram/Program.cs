@@ -2,86 +2,81 @@
 
 namespace Oppsprogram
 {
-    // Program of stack DS
+    // Program of stack DS implementation using LinkedList
+
+   public  class Node
+    {
+      public int data;
+       public Node next;
+
+        public Node(int data)
+        {
+            this.data = data;
+            next = null;
+        }
+    }
     class MyStack
     {
-        int maxsize;
-        int[] stackArray;
-        int top;
+        Node head;
 
-        public MyStack(int size)
+        public bool IsEmpty()
         {
-            maxsize = size;
-            stackArray = new int[maxsize];
-            top = -1;
+            return head == null;
         }
+       
 
-        // Push operation
-        public void Push(int value)
+        public void Push(int data)
         {
-            if (IsFull())
+            Node newNode = new Node(data);
+            if (IsEmpty())
             {
-                Console.WriteLine("Stack is Full");
+                head= newNode;
                 return;
+                
             }
-            top++;
-            stackArray[top] = value;
-        }
 
-        // Pop operation
+            newNode.next = head;
+            head = newNode; 
+
+        }
         public int Pop()
         {
             if (IsEmpty())
             {
-                Console.WriteLine("Stack is Empty");
                 return -1;
             }
-            int val = stackArray[top];
-            top--;
-            Console.WriteLine("Popped element: " + val);
-            return val;
+            int top = head.data;
+            head = head.next;
+            return top;
         }
-
-        // Peek operation
         public int Peek()
         {
             if (IsEmpty())
             {
-                Console.WriteLine("Stack is Empty");
                 return -1;
             }
-            return stackArray[top];
+            return head.data;
+            
         }
 
-        // Utility function to check if the stack is empty
-        public bool IsEmpty()
-        {
-            return (top == -1);
-        }
-
-        // Utility function to check if the stack is full
-        public bool IsFull()
-        {
-            return (top == maxsize - 1);
-        }
+       
     }
 
     class Program
     {
         static void Main(string[] args)
         {
-            MyStack s = new MyStack(5);
+            MyStack s = new MyStack();
 
             s.Push(10);
             s.Push(20);
             s.Push(30);
 
-            Console.WriteLine("Top element: " + s.Peek());
-
-            s.Pop();
-            s.Pop();
-
-            Console.WriteLine("Top element after popping: " + s.Peek());
+            while (!s.IsEmpty())
+            {
+                Console.WriteLine(s.Peek());
+                s.Pop();
+            } 
         }
     }
 }
