@@ -1,0 +1,14 @@
+C:\Users\singh\Source\Repos\Oppsprogram\Oppsprogram\bin\Debug\netcoreapp3.1\Oppsprogram.exe
+C:\Users\singh\Source\Repos\Oppsprogram\Oppsprogram\bin\Debug\netcoreapp3.1\Oppsprogram.deps.json
+C:\Users\singh\Source\Repos\Oppsprogram\Oppsprogram\bin\Debug\netcoreapp3.1\Oppsprogram.runtimeconfig.json
+C:\Users\singh\Source\Repos\Oppsprogram\Oppsprogram\bin\Debug\netcoreapp3.1\Oppsprogram.runtimeconfig.dev.json
+C:\Users\singh\Source\Repos\Oppsprogram\Oppsprogram\bin\Debug\netcoreapp3.1\Oppsprogram.dll
+C:\Users\singh\Source\Repos\Oppsprogram\Oppsprogram\bin\Debug\netcoreapp3.1\Oppsprogram.pdb
+C:\Users\singh\Source\Repos\Oppsprogram\Oppsprogram\obj\Debug\netcoreapp3.1\Oppsprogram.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\singh\Source\Repos\Oppsprogram\Oppsprogram\obj\Debug\netcoreapp3.1\Oppsprogram.AssemblyInfoInputs.cache
+C:\Users\singh\Source\Repos\Oppsprogram\Oppsprogram\obj\Debug\netcoreapp3.1\Oppsprogram.AssemblyInfo.cs
+C:\Users\singh\Source\Repos\Oppsprogram\Oppsprogram\obj\Debug\netcoreapp3.1\Oppsprogram.csproj.CoreCompileInputs.cache
+C:\Users\singh\Source\Repos\Oppsprogram\Oppsprogram\obj\Debug\netcoreapp3.1\Oppsprogram.sourcelink.json
+C:\Users\singh\Source\Repos\Oppsprogram\Oppsprogram\obj\Debug\netcoreapp3.1\Oppsprogram.dll
+C:\Users\singh\Source\Repos\Oppsprogram\Oppsprogram\obj\Debug\netcoreapp3.1\Oppsprogram.pdb
+C:\Users\singh\Source\Repos\Oppsprogram\Oppsprogram\obj\Debug\netcoreapp3.1\Oppsprogram.genruntimeconfig.cache
