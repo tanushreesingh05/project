@@ -2,28 +2,42 @@
 
 namespace Oppsprogram
 {
-    //single inheritance example
-    public class Vehicle
+    //Program of Plymorphism
+    class Animal  // Base class (parent) 
     {
-
-        public string brand = "Ford";
-        public void hork()
+        public virtual void animalSound()
         {
-            Console.WriteLine("Tuut, tuut!");
+            Console.WriteLine("The animal makes a sound");
         }
+    }
 
+    class Pig : Animal  // Derived class (child) 
+    {
+        public override void animalSound()
+        {
+            Console.WriteLine("The pig says: wee wee");
+        }
     }
-    class Car : Vehicle { 
-        public string modelName = "Mustang";  
+
+    class Dog : Animal  // Derived class (child) 
+    {
+        public override void animalSound()
+        {
+            Console.WriteLine("The dog says: bow wow");
+        }
     }
-    internal class Program
+
+    class Program
     {
         static void Main(string[] args)
         {
-            Car c = new Car();
-            c.hork();
+            Animal myAnimal = new Animal();  // Create a Animal object
+            Animal myPig = new Pig();  // Create a Pig object
+            Animal myDog = new Dog();  // Create a Dog object
 
-            Console.WriteLine(c.brand + " " + c.modelName);
+            myAnimal.animalSound();
+            myPig.animalSound();
+            myDog.animalSound();
         }
     }
 }
