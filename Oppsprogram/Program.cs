@@ -7,33 +7,25 @@ namespace Oppsprogram
     {
         static void Main(string[] args)
         {
-            int[] arr = new int[5] { 1, 2, 3, 4, 5 };
+            int[,] arr = new int[2, 2]
+            {
+                {1,2},
+                {3,4}
+            };
 
-            //accessing the element 
-            Console.WriteLine("Accessing arr value using for loop: ");
-            for(int i = 0; i < arr.Length; i++)
+
+            Console.WriteLine("Print 2D array");
+
+            for (int i = 0; i < 2; i++)
             {
-                Console.WriteLine(arr[i] + " ");
+                for (int j = 0; j < 2; j++)
+                {
+                    Console.Write(arr[i, j] + " ");
+                }
+                Console.WriteLine();
             }
-            Console.WriteLine("Accessing arr value using foreach loop");
-            foreach(int i in arr)
-            {
-                Console.WriteLine(i+ " ");
-            }
-            Console.WriteLine("Acessing arr value using while loop");
-            int j = 0;
-            while (j < arr.Length)
-            {
-                Console.WriteLine(arr[j] + " ");
-                j++;
-            } 
-            Console.WriteLine("Acessing arr value using do - while loop");
-            int k = 0;
-            do
-            {
-                Console.WriteLine(arr[k] + " ");
-                k++;
-            } while (k < arr.Length);
+            
+
         }
     }
 }
