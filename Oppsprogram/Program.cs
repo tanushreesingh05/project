@@ -2,42 +2,46 @@
 
 namespace Oppsprogram
 {
-    //Program of Plymorphism
-    class Animal  // Base class (parent) 
+    //Program of abstraction
+    /*Data abstraction is the process of hiding certain details and showing only essential information to the user.
+Abstraction can be achieved with either abstract classes or interfaces (which you will learn more about in the next chapter).
+
+The abstract keyword is used for classes and methods:
+
+Abstract class: is a restricted class that cannot be used to create objects (to access it, it must be inherited from another class).
+
+Abstract method: can only be used in an abstract class, and it does not have a body. The body is provided by the derived class (inherited from).*/
+    
+
+    abstract class Animal
     {
-        public virtual void animalSound()
+        // Abstract method (does not have a body)
+        public abstract void animalSound();
+
+        //normal method 
+        public void sleep()
         {
-            Console.WriteLine("The animal makes a sound");
+            Console.WriteLine("Zzz");
         }
+
     }
 
-    class Pig : Animal  // Derived class (child) 
+    class Dog : Animal
     {
+        // The body of animalSound() is provided here
         public override void animalSound()
         {
-            Console.WriteLine("The pig says: wee wee");
+            Console.WriteLine("The dog says : bow wow");
+
         }
     }
-
-    class Dog : Animal  // Derived class (child) 
-    {
-        public override void animalSound()
-        {
-            Console.WriteLine("The dog says: bow wow");
-        }
-    }
-
     class Program
     {
         static void Main(string[] args)
         {
-            Animal myAnimal = new Animal();  // Create a Animal object
-            Animal myPig = new Pig();  // Create a Pig object
-            Animal myDog = new Dog();  // Create a Dog object
-
-            myAnimal.animalSound();
-            myPig.animalSound();
-            myDog.animalSound();
+            Dog dog = new Dog();
+            dog.animalSound();
+            dog.sleep();
         }
     }
 }
