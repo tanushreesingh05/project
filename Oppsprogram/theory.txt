@@ -1,11 +1,10 @@
-C# Anonymous Functions
-Anonymous function is a type of function that does not has name. In other words, we can say that a function without name is known as anonymous function.
+Multidimensional Arrays
 
-In C#, there are two types of anonymous functions:
-Lambda Expressions
-Anonymous Methods
-C# Lambda Expressions
-Lambda expression is an anonymous function which we can use to create delegates. We can use lambda expression to create local functions that can be passed as an argument. It is also helpful to write LINQ queries.
+The multi-dimensional array contains more than one row to store the values. It is also known as a Rectangular Array in C# because it’s each row length is same. It can be a 2D-array or 3D-array or more. To storing and accessing the values of the array, one required the nested loop. The multi-dimensional array declaration, initialization and accessing is as follows :
 
-C# Lambda Expression Syntax
-(input-parameters) => expression  
+// creates a two-dimensional array of 
+// four rows and two columns.
+int[, ] intarray = new int[4, 2];
+
+//creates an array of three dimensions, 4, 2, and 3
+int[,, ] intarray1 = new int[4, 2, 3];
