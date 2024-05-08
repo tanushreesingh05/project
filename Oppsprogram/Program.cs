@@ -2,19 +2,45 @@
 
 namespace Oppsprogram
 {
-    //Program of encapsulation
-    /*
-     Encapsulation is the concept of wrapping data into a single unit. It collects data members and member functions into a single unit called class. The purpose of encapsulation is to prevent alteration of data from outside. This data can only be accessed by getter functions of the class.
-
-A fully encapsulated class has getter and setter functions that are used to read and write data. This class does not allow data access directly.
-
-Here, we are creating an example in which we have a class that encapsulates properties and provides getter and setter functions.*/
-
-    class Student
+    //Program of aggregation
+    
+    public class Address
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public string email { get; set; }
+        public string addressLine;
+        public string city;
+        public string state;
+
+        public Address(string addressLine, string city, string state)
+        {
+              this.addressLine = addressLine;
+            this.city = city;
+            this.state = state;
+
+
+        }
+    }
+    
+    public class Employee
+    {
+        public int id;
+        public string name;
+        public Address address;
+
+        public Employee(int id, string name, Address address)
+        {
+            this.id = id;
+            this.name = name;
+            this.address = address;
+        }
+
+        public void display()
+        {
+            Console.WriteLine("Employee ID : " + id);
+            Console.WriteLine("Employee Name : " + name); 
+            Console.WriteLine("Employee Address : " + address.addressLine + " " + address.city + " " + address.state);
+       
+             
+        }
     }
 
 
@@ -22,17 +48,9 @@ Here, we are creating an example in which we have a class that encapsulates prop
     {
         static void Main(string[] args)
         {
-            Student student = new Student();
-            //setting value to the properties
-            student.id = 101;
-            student.name = "Tanushree singh";
-            student.email = "singhtanushree111@gmail.com || tanushreesingh555@gmail.com";
-
-            //getting values
-            
-            Console.WriteLine("ID : "+ student.id);
-            Console.WriteLine("Name : "+ student.name);
-            Console.WriteLine("Email : "+ student.email);
+            Address a = new Address("P-32", "Thane", "Maharashtra");
+            Employee e = new Employee(101, "Taushree singh", a);
+            e.display();
         }
     }
 }
