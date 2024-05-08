@@ -2,56 +2,37 @@
 
 namespace Oppsprogram
 {
-    //Program of interface 
-    /*An interface is a completely "abstract class", 
-     which can only contain abstract methods and properties (with empty bodies):
-    // interface
-      interface Animal 
-      {
-        void animalSound(); // interface method (does not have a body)
-        void run(); // interface method (does not have a body)
-      }
+    //Program of encapsulation
+    /*
+     Encapsulation is the concept of wrapping data into a single unit. It collects data members and member functions into a single unit called class. The purpose of encapsulation is to prevent alteration of data from outside. This data can only be accessed by getter functions of the class.
 
-    Notes on Interfaces:
-  1. Like abstract classes, interfaces cannot be used to create objects (in the example above, it is not possible to create an "IAnimal" object in the Program class)
-  2. Interface methods do not have a body - the body is provided by the "implement" class
-  3. On implementation of an interface, you must override all of its methods
-  4. Interfaces can contain properties and methods, but not fields/variables
-  5. Interface members are by default abstract and public
-  6. An interface cannot contain a constructor (as it cannot be used to create objects)
-   Why And When To Use Interfaces?
-     1) To achieve security - hide certain details and only show the important details of an object (interface).
+A fully encapsulated class has getter and setter functions that are used to read and write data. This class does not allow data access directly.
 
-     2) C# does not support "multiple inheritance" (a class can only inherit from one base class). However, it can be achieved with interfaces, because the class can implement multiple interfaces.
-     */
+Here, we are creating an example in which we have a class that encapsulates properties and provides getter and setter functions.*/
 
-    interface IAnimal
+    class Student
     {
-        void animalSound();
-        void sleep();
-    }
-    
-    class Pig : IAnimal
-    {
-        public void animalSound() {
-
-            Console.WriteLine("The pig says :wee wee");
-        }  
-        public void sleep()
-        {
-            Console.WriteLine("Zzz");
-        }
+        public int id { get; set; }
+        public string name { get; set; }
+        public string email { get; set; }
     }
 
 
-class Program
+    class Program
     {
         static void Main(string[] args)
         {
-            Pig p=new Pig();    
-            p.animalSound();
-             p.sleep();
+            Student student = new Student();
+            //setting value to the properties
+            student.id = 101;
+            student.name = "Tanushree singh";
+            student.email = "singhtanushree111@gmail.com || tanushreesingh555@gmail.com";
 
+            //getting values
+            
+            Console.WriteLine("ID : "+ student.id);
+            Console.WriteLine("Name : "+ student.name);
+            Console.WriteLine("Email : "+ student.email);
         }
     }
 }

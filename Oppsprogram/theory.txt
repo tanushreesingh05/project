@@ -1,0 +1,6 @@
+C# Encapsulation
+Encapsulation is the concept of wrapping data into a single unit. It collects data members and member functions into a single unit called class. The purpose of encapsulation is to prevent alteration of data from outside. This data can only be accessed by getter functions of the class.
+
+A fully encapsulated class has getter and setter functions that are used to read and write data. This class does not allow data access directly.
+
+Here, we are creating an example in which we have a class that encapsulates properties and provides getter and setter functions.
