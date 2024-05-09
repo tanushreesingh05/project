@@ -1,26 +1,15 @@
-A stack is a linear data structure that follows the Last In, First Out (LIFO) principle. This means that the last element added to the stack will be the first one to be removed. Think of it as a stack of plates where you can only add or remove the top plate.
+A queue is a linear data structure that follows the First In First Out (FIFO) principle. In a queue, elements are inserted from the rear (enqueue) and removed from the front (dequeue).
 
-In C#, you can implement a stack using arrays, linked lists, or the built-in Stack<T> class provided by the .NET Framework.
+Using a linked list to implement a queue provides flexibility in dynamically allocating memory for elements and efficient insertion and deletion operations. In a linked list-based queue, each element of the queue is represented by a node, and each node contains two fields: one to store the data and another to store the reference (or pointer) to the next node in the sequence.
 
-Here's a brief overview of the stack operations:
+Here are the key components of implementing a queue using a linked list in C#:
 
-Push: This operation adds an element to the top of the stack.
-Pop: This operation removes and returns the element from the top of the stack.
-Peek: This operation returns the element at the top of the stack without removing it.
-IsEmpty: This operation checks if the stack is empty.
-IsFull: This operation checks if the stack is full (if implemented with a fixed-size array).
-When implementing a stack using arrays,
-you'll typically need to keep track of the top of the 
-stack (index of the last element) and the maximum size 
-of the stack (if it has a fixed size). Pushing an element
-involves incrementing the top index and inserting the 
-element at that index. Popping an element involves 
-returning the element at the top index and decrementing 
-the top index.
-
-If you implement a stack using a linked list,
-you won't have to worry about the size limitation,
-as the linked list can dynamically grow to accommodate 
-new elements. Pushing and popping elements from a linked 
-list-based stack involve adding and removing nodes from 
-the beginning (head) of the list, which is efficient.
+Node Class: This class represents each element of the queue. It typically contains two properties: one to store the data (Data) and another to store the reference to the next node (Next).
+Queue Class: This class is responsible for managing the queue operations such as enqueue, dequeue, peek, and checking if the queue is empty. It maintains references to the front and rear nodes of the queue.
+Enqueue(): This method inserts an element at the rear of the queue by creating a new node and updating the Next reference of the rear node.
+Dequeue(): This method removes and returns the element from the front of the queue by updating the front reference to point to the next node.
+Peek(): This method returns the element at the front of the queue without removing it.
+IsEmpty(): This method checks whether the queue is empty by verifying if the front reference is null.
+Main Program: In the main program, you can create a queue object, enqueue elements, dequeue elements, peek at the front element, and display the contents of the queue.
+The linked list-based implementation offers O(1) time complexity for enqueue and dequeue operations, making it efficient for dynamic data structures where 
+the size may change frequently.
