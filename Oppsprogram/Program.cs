@@ -6,74 +6,62 @@
 namespace Oppsprogram
 {
    
-    public class Node
+  
+    
+    class Queue<T>
     {
-        public int data;
-        public Node next;
+        T[] arrList;
+        int front = 0;
+        int rear = -1;
+        int size;
 
-        public Node(int data)
+        public Queue(int size)
         {
-            this.data = data;
-            next = null;
+            arrList = new T[size];
+            this.size = size;
         }
-
-    }
-    class Queue
-    {
-        Node head = null;
-        Node tail = null;
 
 
         public bool IsEmpty()
         {
-          return head==null & tail == null;
+          return rear==-1;
         
         }
-        public void add(int data)
+        public void add(T data)
         {
-            Node newNode = new Node(data);
-
-            if (head == null)
+            if(rear==arrList.Length-1)
             {
-                head = tail = newNode;
-                return;
+                Console.WriteLine("Queue is Full");
             }
-            tail.next = newNode;
-            tail = newNode;
+            rear++;
+            arrList[rear] = data;
 
         }
 
-        public int remove()
+        public T remove()
         {
 
             if (IsEmpty())
             {
                 Console.WriteLine("Queue is empty");
-                return -1;
+                
             }
 
-            int front = head.data;
-            //single element
-            if (head == tail){
-                head = tail = null;
+            T removeditem = arrList[front];
+            front++;
 
-            }
-            else
-            {
-                head = head.next;
-            }
-            return front;
+            return removeditem;
 
         }
 
-        public int peek()
+        public T peek()
         {
             if (IsEmpty())
             {
                 Console.WriteLine("Queue is empty");
-                return -1;
+                
             }
-            return head.data;
+            return arrList[front];
         }
 
     }
@@ -87,8 +75,9 @@ namespace Oppsprogram
         static void Main(string[] args)
         {
 
-            Queue q = new Queue();
+            Queue<int> q = new Queue<int>(5);
             q.add(1);
+            
             q.add(2);
 
             q.add(3);
