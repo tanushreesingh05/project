@@ -1,26 +1,19 @@
-A stack is a linear data structure that follows the Last In, First Out (LIFO) principle. This means that the last element added to the stack will be the first one to be removed. Think of it as a stack of plates where you can only add or remove the top plate.
+What is a Queue?
+A queue is a linear data structure that follows the First In, First Out (FIFO)
+principle. In a queue, elements are inserted at the rear end (enqueue) and
+removed from the front end (dequeue). This means that the element that has
+been in the queue the longest is the one to be removed first.
 
-In C#, you can implement a stack using arrays, linked lists, or the built-in Stack<T> class provided by the .NET Framework.
-
-Here's a brief overview of the stack operations:
-
-Push: This operation adds an element to the top of the stack.
-Pop: This operation removes and returns the element from the top of the stack.
-Peek: This operation returns the element at the top of the stack without removing it.
-IsEmpty: This operation checks if the stack is empty.
-IsFull: This operation checks if the stack is full (if implemented with a fixed-size array).
-When implementing a stack using arrays,
-you'll typically need to keep track of the top of the 
-stack (index of the last element) and the maximum size 
-of the stack (if it has a fixed size). Pushing an element
-involves incrementing the top index and inserting the 
-element at that index. Popping an element involves 
-returning the element at the top index and decrementing 
-the top index.
-
-If you implement a stack using a linked list,
-you won't have to worry about the size limitation,
-as the linked list can dynamically grow to accommodate 
-new elements. Pushing and popping elements from a linked 
-list-based stack involve adding and removing nodes from 
-the beginning (head) of the list, which is efficient.
+Key Characteristics:
+FIFO Principle: The first element inserted into the queue will be
+the first one to be removed.
+Two Main Operations:
+Enqueue: Adds an element to the rear end of the queue.
+Dequeue: Removes and returns the element from the front end of the queue.
+Peek Operation: Retrieves the element at the front end of the queue 
+without removing it.
+Implementation:
+Queue can be implemented using various underlying data structures
+like arrays, linked lists, or dynamic arrays.
+In C#, the Queue<T> class from the System.Collections.Generic namespace
+is commonly used for implementing queues.
