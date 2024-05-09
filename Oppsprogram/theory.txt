@@ -1,15 +1,14 @@
-A queue is a linear data structure that follows the First In First Out (FIFO) principle. In a queue, elements are inserted from the rear (enqueue) and removed from the front (dequeue).
+In this implementation:
 
-Using a linked list to implement a queue provides flexibility in dynamically allocating memory for elements and efficient insertion and deletion operations. In a linked list-based queue, each element of the queue is represented by a node, and each node contains two fields: one to store the data and another to store the reference (or pointer) to the next node in the sequence.
+We use a generic type T to allow the queue to store elements of any type.
+We maintain an array arr to store the elements of the queue.
+front and rear indices track the position of the front and rear elements 
+of the queue, respectively.
+capacity specifies the maximum number of elements the queue can hold.
+count keeps track of the number of elements currently in the queue.
+Enqueue adds an item to the rear end of the queue, and Dequeue removes
+an item from the front end.
+Peek returns the item at the front end without removing it.
+IsEmpty and IsFull methods check if the queue is empty or full, respectively.
 
-Here are the key components of implementing a queue using a linked list in C#:
 
-Node Class: This class represents each element of the queue. It typically contains two properties: one to store the data (Data) and another to store the reference to the next node (Next).
-Queue Class: This class is responsible for managing the queue operations such as enqueue, dequeue, peek, and checking if the queue is empty. It maintains references to the front and rear nodes of the queue.
-Enqueue(): This method inserts an element at the rear of the queue by creating a new node and updating the Next reference of the rear node.
-Dequeue(): This method removes and returns the element from the front of the queue by updating the front reference to point to the next node.
-Peek(): This method returns the element at the front of the queue without removing it.
-IsEmpty(): This method checks whether the queue is empty by verifying if the front reference is null.
-Main Program: In the main program, you can create a queue object, enqueue elements, dequeue elements, peek at the front element, and display the contents of the queue.
-The linked list-based implementation offers O(1) time complexity for enqueue and dequeue operations, making it efficient for dynamic data structures where 
-the size may change frequently.
