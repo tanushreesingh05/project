@@ -1,85 +1,106 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 
 
-//Program of stack implementation using arraylist
+
+//Program of Queue implementation using linkedlist
 namespace Oppsprogram
 {
    
-
-    
-    public class Stack<T>
+    public class Node
     {
-        T[] arrayList;
-        int top;
+        public int data;
+        public Node next;
 
-        public Stack(int size)
+        public Node(int data)
         {
-            arrayList = new T[size];
-                
-                top = -1;
-
+            this.data = data;
+            next = null;
         }
 
+    }
+    class Queue
+    {
+        Node head = null;
+        Node tail = null;
 
-         public bool IsEmpty()
+
+        public bool IsEmpty()
         {
-            return top == -1;
+          return head==null & tail == null;
+        
         }
-        public void push(T val)
-
+        public void add(int data)
         {
-            if (top == arrayList.Length - 1)
+            Node newNode = new Node(data);
+
+            if (head == null)
             {
-                Console.WriteLine("Stack is Full");
+                head = tail = newNode;
                 return;
             }
-
-            top++;
-            arrayList[top] = val;
+            tail.next = newNode;
+            tail = newNode;
 
         }
-        public T pop()
+
+        public int remove()
+        {
+
+            if (IsEmpty())
+            {
+                Console.WriteLine("Queue is empty");
+                return -1;
+            }
+
+            int front = head.data;
+            //single element
+            if (head == tail){
+                head = tail = null;
+
+            }
+            else
+            {
+                head = head.next;
+            }
+            return front;
+
+        }
+
+        public int peek()
         {
             if (IsEmpty())
             {
-                Console.WriteLine("Stack is Empty");
-                
+                Console.WriteLine("Queue is empty");
+                return -1;
             }
-            T popItem = arrayList[top];
-                top--;
-            return popItem;
-            
+            return head.data;
+        }
 
-        }
-        public T peek()
-        {
-            if (IsEmpty())
-            {
-                Console.WriteLine("Stack is Empty");
-                
-            }
-            return arrayList[top];
-        }
     }
+
+
+    
+   
 
     class Program
     {
         static void Main(string[] args)
         {
-            Stack<int> stack = new Stack<int>(5);
 
-            stack.push(1);
-            stack.push(2);
-            stack.push(3);
-            stack.push(4);
-            stack.push(5);
+            Queue q = new Queue();
+            q.add(1);
+            q.add(2);
 
-            Console.WriteLine("Top if the stack value : " + stack.peek());
-            while (!stack.IsEmpty())
+            q.add(3);
+
+            q.add(4);
+
+            q.add(5);
+
+            Console.WriteLine("Front element in the queue : " + q.peek());
+            while (!q.IsEmpty())
             {
-                Console.WriteLine(stack.pop());
+                Console.WriteLine(q.remove());
             }
 
 
