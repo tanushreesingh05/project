@@ -1,82 +1,92 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
+
+//Program of stack implementation using arraylist
 namespace Oppsprogram
 {
-    // Program of stack DS implementation using LinkedList
+   
 
-   public  class Node
+    
+    public class Stack<T>
     {
-      public int data;
-       public Node next;
+        T[] arrayList;
+        int top;
 
-        public Node(int data)
+        public Stack(int size)
         {
-            this.data = data;
-            next = null;
+            arrayList = new T[size];
+                
+                top = -1;
+
         }
-    }
-    class MyStack
-    {
-        Node head;
 
-        public bool IsEmpty()
+
+         public bool IsEmpty()
         {
-            return head == null;
+            return top == -1;
         }
-       
+        public void push(T val)
 
-        public void Push(int data)
         {
-            Node newNode = new Node(data);
+            if (top == arrayList.Length - 1)
+            {
+                Console.WriteLine("Stack is Full");
+                return;
+            }
+
+            top++;
+            arrayList[top] = val;
+
+        }
+        public T pop()
+        {
             if (IsEmpty())
             {
-                head= newNode;
-                return;
+                Console.WriteLine("Stack is Empty");
                 
             }
-
-            newNode.next = head;
-            head = newNode; 
-
-        }
-        public int Pop()
-        {
-            if (IsEmpty())
-            {
-                return -1;
-            }
-            int top = head.data;
-            head = head.next;
-            return top;
-        }
-        public int Peek()
-        {
-            if (IsEmpty())
-            {
-                return -1;
-            }
-            return head.data;
+            T popItem = arrayList[top];
+                top--;
+            return popItem;
             
-        }
 
-       
+        }
+        public T peek()
+        {
+            if (IsEmpty())
+            {
+                Console.WriteLine("Stack is Empty");
+                
+            }
+            return arrayList[top];
+        }
     }
 
     class Program
     {
         static void Main(string[] args)
         {
-            MyStack s = new MyStack();
+            Stack<int> stack = new Stack<int>(5);
 
-            s.Push(10);
-            s.Push(20);
-            s.Push(30);
+            stack.push(1);
+            stack.push(2);
+            stack.push(3);
+            stack.push(4);
+            stack.push(5);
 
-            while (!s.IsEmpty())
+            Console.WriteLine("Top if the stack value : " + stack.peek());
+            while (!stack.IsEmpty())
             {
-                Console.WriteLine(s.Peek());
-                s.Pop();
-            } 
+                Console.WriteLine(stack.pop());
+            }
+
+
+
+
+
+
         }
     }
 }
