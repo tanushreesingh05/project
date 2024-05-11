@@ -1,12 +1,55 @@
-A LinkedList is a linear data structure which stores element
-in the non-contiguous location. The elements in a linked list 
-are linked with each other using pointers. Or in other words,
-LinkedList consists of nodes where each node contains a data 
-field and a reference(link) to the next node in the list. 
-In C#, LinkedList is the generic type of collection which 
-is defined in System.Collections.Generic namespace.
-It is a doubly linked list, therefore, each node points
-forward to the Next node and backward to the Previous node. 
-It is a dynamic collection which grows, according to the need
-of your program. It also provides fast inserting and removing
-elements.
+A Hashtable is a collection of key/value pairs that are arranged based on 
+the hash code of the key. In other words, a Hashtable is used to create a 
+collection that uses a hash table for storage. It generally optimizes the 
+lookup by calculating the hash code of every key and storing it into another
+basket automatically and when you access the value from the hashtable at that
+time it matches the hashcode with the specified key. It is the non-generic type
+of collection that is defined in the System. Collections namespace. 
+
+Important Points: 
+
+1.In Hashtable, the key cannot be null, but the value can be.
+2.In Hashtable, key objects must be immutable as long as they are used as keys in the Hashtable.
+3.The capacity of a Hashtable is the number of elements that Hashtable can hold.
+4.A hash function is provided by each key object in the Hashtable.
+5.The Hashtable class implements the IDictionary, ICollection, IEnumerable, ISerializable,
+  IDeserializationCallback, and ICloneable interfaces.
+6.In the hashtable, you can store elements of the same type and of 
+  the different types.
+7.The elements of the hashtable that is a key/value pair are stored 
+ in DictionaryEntry, so you can also cast the key/value pairs to a
+ DictionaryEntry.
+8.that key that must be unique. Duplicate keys are not allowed.
+
+How to remove elements from the hashtable?
+
+In Hashtable, you are allowed to remove elements from the hashtable.
+The Hashtable class provides two different methods to remove elements
+and the methods are:
+
+Clear : This method is used to remove all the objects from the hashtable.
+Remove : This method is used to remove the element with the specified key 
+         from the hashtable.
+
+How to check the availability of key/value pair in hashtable?
+
+In hashtable, you can check whether the given pair is present or not using the 
+following methods:
+
+Contains: This method is used to check whether the Hashtable contains a 
+          specific key.
+ContainsKey: This method is also used to check whether the Hashtable
+             contains a specific key.
+ContainsValue: This method is used to check whether the Hashtable contains 
+               a specific value.
+
+How to update an Hash Table?
+In C#, the Hashtable class does not provide a direct method to update the
+value of an existing key. However, you can achieve the update by following
+these steps:
+
+1. Check if the key exists in the Hashtable using the ContainsKey method.
+2. If the key exists, retrieve the current value using the key and store
+   it in a variable.
+3. Assign the new value to the key in the Hash table using the same key.
+4. Optionally, remove the old key/value pair if needed.
