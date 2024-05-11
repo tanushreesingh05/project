@@ -1,102 +1,77 @@
 ﻿using System;
-
-
+using System.Collections;
+ 
 
 //Program of Queue implementation using linkedlist
 namespace Oppsprogram
-{
-   
-  
-    
-    class Queue<T>
     {
-        T[] arrList;
-        int front = 0;
-        int rear = -1;
-        int size;
 
-        public Queue(int size)
+   
+        class Program
         {
-            arrList = new T[size];
-            this.size = size;
-        }
-
-
-        public bool IsEmpty()
-        {
-          return rear==-1;
-        
-        }
-        public void add(T data)
-        {
-            if(rear==arrList.Length-1)
-            {
-                Console.WriteLine("Queue is Full");
-            }
-            rear++;
-            arrList[rear] = data;
-
-        }
-
-        public T remove()
-        {
-
-            if (IsEmpty())
-            {
-                Console.WriteLine("Queue is empty");
-                
-            }
-
-            T removeditem = arrList[front];
-            front++;
-
-            return removeditem;
-
-        }
-
-        public T peek()
-        {
-            if (IsEmpty())
-            {
-                Console.WriteLine("Queue is empty");
-                
-            }
-            return arrList[front];
-        }
-
-    }
-
-
-    
    
 
-    class Program
-    {
         static void Main(string[] args)
-        {
-
-            Queue<int> q = new Queue<int>(5);
-            q.add(1);
-            
-            q.add(2);
-
-            q.add(3);
-
-            q.add(4);
-
-            q.add(5);
-
-            Console.WriteLine("Front element in the queue : " + q.peek());
-            while (!q.IsEmpty())
             {
-                Console.WriteLine(q.remove());
+
+            Hashtable my_hashtable1= new Hashtable();
+
+            my_hashtable1.Add("A1", "Welcome");
+            my_hashtable1.Add("A2", "to");
+            my_hashtable1.Add("A3", "C sharp");
+            my_hashtable1.Add("key1", "value1");
+
+            my_hashtable1.Add("key2", "value2");
+
+
+
+            foreach (DictionaryEntry ele in my_hashtable1)
+            {
+                Console.WriteLine(ele.Key+" "+ele.Value);
+
             }
+            Console.WriteLine("COUNT OF HASHTABLE BEFORE DELETION IS : " + my_hashtable1.Count);
+            my_hashtable1.Remove("A1");
+
+            foreach (DictionaryEntry ele in my_hashtable1)
+            {
+                Console.WriteLine(ele.Key + " " + ele.Value);
+
+            }
+            Console.WriteLine("COUNT OF HASHTABLE AFTER DELETION IS : " + my_hashtable1.Count);
 
 
+            //USING Contains
+            Console.WriteLine(my_hashtable1.Contains("A1"));
+
+            //using
+            //ContainsKey
+            Console.WriteLine(my_hashtable1.ContainsKey("A2"));
+
+            //using ContainsValue
+            Console.WriteLine(my_hashtable1.ContainsValue("to"));
 
 
+            //upadating the valueof existing key
+
+            string keyToUpdate = "key1";
+            if (my_hashtable1.ContainsKey(keyToUpdate))
+            {
+                my_hashtable1[keyToUpdate] = "newValue";
+            }
+            //accessing the updated value
+            string updatedValue = (string)my_hashtable1[keyToUpdate];
+            Console.WriteLine("Updated value:"+ updatedValue);
+            //print all pairs in hashtable
+            foreach(DictionaryEntry delement in my_hashtable1)
+            {
+                Console.WriteLine("Key:"+ delement.Key+" "+"Values:"+delement.Value);
+
+            }
 
 
         }
     }
-}
+    }
+
+

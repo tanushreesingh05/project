@@ -1,14 +1,12 @@
-In this implementation:
-
-We use a generic type T to allow the queue to store elements of any type.
-We maintain an array arr to store the elements of the queue.
-front and rear indices track the position of the front and rear elements 
-of the queue, respectively.
-capacity specifies the maximum number of elements the queue can hold.
-count keeps track of the number of elements currently in the queue.
-Enqueue adds an item to the rear end of the queue, and Dequeue removes
-an item from the front end.
-Peek returns the item at the front end without removing it.
-IsEmpty and IsFull methods check if the queue is empty or full, respectively.
-
-
+A LinkedList is a linear data structure which stores element
+in the non-contiguous location. The elements in a linked list 
+are linked with each other using pointers. Or in other words,
+LinkedList consists of nodes where each node contains a data 
+field and a reference(link) to the next node in the list. 
+In C#, LinkedList is the generic type of collection which 
+is defined in System.Collections.Generic namespace.
+It is a doubly linked list, therefore, each node points
+forward to the Next node and backward to the Previous node. 
+It is a dynamic collection which grows, according to the need
+of your program. It also provides fast inserting and removing
+elements.
