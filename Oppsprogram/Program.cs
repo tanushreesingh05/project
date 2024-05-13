@@ -1,77 +1,56 @@
 ﻿using System;
-using System.Collections;
- 
+using System.Collections.Generic;
 
-//Program of Queue implementation using linkedlist
+
+//Program of Dictionary
 namespace Oppsprogram
+{
+
+
+    class Program
     {
 
-   
-        class Program
-        {
-   
 
         static void Main(string[] args)
-            {
+        {
+            Dictionary<int, string> mydict = new Dictionary<int, string>();
 
-            Hashtable my_hashtable1= new Hashtable();
+            mydict.Add(1, "Emp1");
+            mydict.Add(2, "Emp2");
+            mydict.Add(3, "Emp3");
+            mydict.Add(4, "Emp4");
+            mydict.Add(5, "Emp5");
 
-            my_hashtable1.Add("A1", "Welcome");
-            my_hashtable1.Add("A2", "to");
-            my_hashtable1.Add("A3", "C sharp");
-            my_hashtable1.Add("key1", "value1");
+            foreach(KeyValuePair<int,string> val in mydict) {
 
-            my_hashtable1.Add("key2", "value2");
+                Console.WriteLine("{0} and {1} ", val.Key, val.Value);
 
-
-
-            foreach (DictionaryEntry ele in my_hashtable1)
-            {
-                Console.WriteLine(ele.Key+" "+ele.Value);
-
+                               
+            
             }
-            Console.WriteLine("COUNT OF HASHTABLE BEFORE DELETION IS : " + my_hashtable1.Count);
-            my_hashtable1.Remove("A1");
+            Console.WriteLine();
+            mydict.Remove(1);
 
-            foreach (DictionaryEntry ele in my_hashtable1)
+            if (mydict.ContainsKey(1))
             {
-                Console.WriteLine(ele.Key + " " + ele.Value);
-
+                Console.WriteLine("Key is found ...");
             }
-            Console.WriteLine("COUNT OF HASHTABLE AFTER DELETION IS : " + my_hashtable1.Count);
-
-
-            //USING Contains
-            Console.WriteLine(my_hashtable1.Contains("A1"));
-
-            //using
-            //ContainsKey
-            Console.WriteLine(my_hashtable1.ContainsKey("A2"));
-
-            //using ContainsValue
-            Console.WriteLine(my_hashtable1.ContainsValue("to"));
-
-
-            //upadating the valueof existing key
-
-            string keyToUpdate = "key1";
-            if (my_hashtable1.ContainsKey(keyToUpdate))
+            else
             {
-                my_hashtable1[keyToUpdate] = "newValue";
+                Console.WriteLine("Key is not found ...");
             }
-            //accessing the updated value
-            string updatedValue = (string)my_hashtable1[keyToUpdate];
-            Console.WriteLine("Updated value:"+ updatedValue);
-            //print all pairs in hashtable
-            foreach(DictionaryEntry delement in my_hashtable1)
+            if(mydict.ContainsValue("Emp2")) {
+                Console.WriteLine("Value is found...");
+            }
+            else
             {
-                Console.WriteLine("Key:"+ delement.Key+" "+"Values:"+delement.Value);
-
+                Console.WriteLine("Value is not found...");
             }
-
-
         }
-    }
-    }
 
+
+
+
+    }
+}
 
