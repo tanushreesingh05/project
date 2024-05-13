@@ -1,21 +1,27 @@
-1.Dictionary is a collection of (key,value) pair
-2. Dictionary class is parent in System.Collections.Generic namespace.
-3. When creating a dictionary ,we need to specify the type for key and value.
-4. Dictinary provides fast lookup for value using keys.
-5. Keys in the dictionary must be unique.
+In C#, HashSet is an unordered collection of unique elements. This collection is introduced in .NET 3.5. It supports the implementation of sets and uses the hash table for storage. This collection is of the generic type collection and it is defined under System.Collections.Generic namespace. It is generally used when we want to prevent duplicate elements from being placed in the collection. The performance of the HashSet is much better in comparison to the list. 
+
+Important Points Related To HashSet in C#
+The HashSet class implements the ICollection, IEnumerable, IReadOnlyCollection, ISet, IEnumerable, IDeserializationCallback, and ISerializable interfaces.
+In HashSet, the order of the element is not defined. You cannot sort the elements of HashSet.
+In HashSet, the elements must be unique.
+In HashSet, duplicate elements are not allowed.
+It provides many mathematical set operations, such as intersection, union, and difference.
+The capacity of a HashSet is the number of elements it can hold.
+A HashSet is a dynamic collection means the size of the HashSet is automatically increased when the new elements are added.
+In HashSet, you can only store the same type of elements.
 
 
+How to remove elements from the HashSet?
+In HashSet, you are allowed to remove elements from the HashSet. HashSet<T> class provides three different methods to remove elements and the methods are:
+
+Remove(T): This method is used to remove the specified element from a HashSet object.
+RemoveWhere(Predicate): This method is used to remove all elements that match the conditions defined by the specified predicate from a HashSet collection.
+Clear: This method is used to remove all elements from a HashSet object.
 
 
+Set Operations
+HashSet class also provides some methods that are used to perform different operations on sets and the methods are:
 
-
-In Dictionary, you are allowed to remove elements from the Dictionary. Dictionary<TKey, TValue> class provides two different methods to remove elements and the methods are:
-
-Clear: This method removes all keys and values from the Dictionary<TKey,TValue>.
-Remove: This method removes the value with the specified key from the Dictionary<TKey,TValue>.
-
-
-In Dictionary, you can check whether the given key or value present in the specified dictionary or not. The Dictionary<TKey, TValue> class provides two different methods for checking and the methods are:
-
-ContainsKey: This method is used to check whether the Dictionary<TKey,TValue> contains the specified key.
-ContainsValue: This method is used to check whether the Dictionary<TKey,TValue> contains a specific value.
+UnionWith(IEnumerable): This method is used to modify the current HashSet object to contain all elements that are present in itself, the specified collection, or both.
+IntersectWith(IEnumerable): This method is used to modify the current HashSet object to contain only elements that are present in that object and in the specified collection.
+ExceptWith(IEnumerable): This method is used to remove all elements in the specified collection from the current HashSet object.
