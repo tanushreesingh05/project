@@ -1,55 +1,21 @@
-A Hashtable is a collection of key/value pairs that are arranged based on 
-the hash code of the key. In other words, a Hashtable is used to create a 
-collection that uses a hash table for storage. It generally optimizes the 
-lookup by calculating the hash code of every key and storing it into another
-basket automatically and when you access the value from the hashtable at that
-time it matches the hashcode with the specified key. It is the non-generic type
-of collection that is defined in the System. Collections namespace. 
+1.Dictionary is a collection of (key,value) pair
+2. Dictionary class is parent in System.Collections.Generic namespace.
+3. When creating a dictionary ,we need to specify the type for key and value.
+4. Dictinary provides fast lookup for value using keys.
+5. Keys in the dictionary must be unique.
 
-Important Points: 
 
-1.In Hashtable, the key cannot be null, but the value can be.
-2.In Hashtable, key objects must be immutable as long as they are used as keys in the Hashtable.
-3.The capacity of a Hashtable is the number of elements that Hashtable can hold.
-4.A hash function is provided by each key object in the Hashtable.
-5.The Hashtable class implements the IDictionary, ICollection, IEnumerable, ISerializable,
-  IDeserializationCallback, and ICloneable interfaces.
-6.In the hashtable, you can store elements of the same type and of 
-  the different types.
-7.The elements of the hashtable that is a key/value pair are stored 
- in DictionaryEntry, so you can also cast the key/value pairs to a
- DictionaryEntry.
-8.that key that must be unique. Duplicate keys are not allowed.
 
-How to remove elements from the hashtable?
 
-In Hashtable, you are allowed to remove elements from the hashtable.
-The Hashtable class provides two different methods to remove elements
-and the methods are:
 
-Clear : This method is used to remove all the objects from the hashtable.
-Remove : This method is used to remove the element with the specified key 
-         from the hashtable.
 
-How to check the availability of key/value pair in hashtable?
+In Dictionary, you are allowed to remove elements from the Dictionary. Dictionary<TKey, TValue> class provides two different methods to remove elements and the methods are:
 
-In hashtable, you can check whether the given pair is present or not using the 
-following methods:
+Clear: This method removes all keys and values from the Dictionary<TKey,TValue>.
+Remove: This method removes the value with the specified key from the Dictionary<TKey,TValue>.
 
-Contains: This method is used to check whether the Hashtable contains a 
-          specific key.
-ContainsKey: This method is also used to check whether the Hashtable
-             contains a specific key.
-ContainsValue: This method is used to check whether the Hashtable contains 
-               a specific value.
 
-How to update an Hash Table?
-In C#, the Hashtable class does not provide a direct method to update the
-value of an existing key. However, you can achieve the update by following
-these steps:
+In Dictionary, you can check whether the given key or value present in the specified dictionary or not. The Dictionary<TKey, TValue> class provides two different methods for checking and the methods are:
 
-1. Check if the key exists in the Hashtable using the ContainsKey method.
-2. If the key exists, retrieve the current value using the key and store
-   it in a variable.
-3. Assign the new value to the key in the Hash table using the same key.
-4. Optionally, remove the old key/value pair if needed.
+ContainsKey: This method is used to check whether the Dictionary<TKey,TValue> contains the specified key.
+ContainsValue: This method is used to check whether the Dictionary<TKey,TValue> contains a specific value.
