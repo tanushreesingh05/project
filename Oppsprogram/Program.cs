@@ -1,56 +1,61 @@
 ﻿using System;
 using System.Collections.Generic;
 
-
-//Program of Dictionary
 namespace Oppsprogram
 {
-
-
     class Program
     {
-
-
         static void Main(string[] args)
         {
-            Dictionary<int, string> mydict = new Dictionary<int, string>();
+            HashSet<string> myhash1 = new HashSet<string>();
 
-            mydict.Add(1, "Emp1");
-            mydict.Add(2, "Emp2");
-            mydict.Add(3, "Emp3");
-            mydict.Add(4, "Emp4");
-            mydict.Add(5, "Emp5");
+            myhash1.Add("C");
+            myhash1.Add("C++");
+            myhash1.Add("C#");
+            myhash1.Add("Java");
+            myhash1.Add("Ruby");
 
-            foreach(KeyValuePair<int,string> val in mydict) {
-
-                Console.WriteLine("{0} and {1} ", val.Key, val.Value);
-
-                               
-            
-            }
-            Console.WriteLine();
-            mydict.Remove(1);
-
-            if (mydict.ContainsKey(1))
+            foreach (var val in myhash1)
             {
-                Console.WriteLine("Key is found ...");
+                Console.WriteLine(val);
             }
-            else
+
+            Console.WriteLine("-------------------------------");
+
+            HashSet<string> myhash2 = new HashSet<string>();
+
+            myhash2.Add("PHP");
+            myhash2.Add("C++");
+            myhash2.Add("Perl");
+            myhash2.Add("Java");
+
+            foreach (var val in myhash2)
             {
-                Console.WriteLine("Key is not found ...");
+                Console.WriteLine(val);
             }
-            if(mydict.ContainsValue("Emp2")) {
-                Console.WriteLine("Value is found...");
-            }
-            else
+
+            Console.WriteLine("-------UnionWith-----");//The unique element present in both table 
+            myhash1.UnionWith(myhash2);
+            foreach (var val in myhash1)
             {
-                Console.WriteLine("Value is not found...");
+                Console.WriteLine(val);
             }
+
+            Console.WriteLine("-------IntersectWith-----");//The element only present in both table
+            myhash1.IntersectWith(myhash2);
+            foreach (var val in myhash1)
+            {
+                Console.WriteLine(val);
+            }
+
+            Console.WriteLine("-------ExceptWith-----");//The element only present in table 2
+            myhash1.ExceptWith(myhash2);
+            foreach (var ele in myhash2)
+            {
+                Console.WriteLine(ele);
+            }
+
+            Console.ReadLine();
         }
-
-
-
-
     }
 }
-
