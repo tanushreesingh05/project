@@ -1,61 +1,178 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 
-namespace Oppsprogram
+namespace Example
 {
+    public class Node
+    {
+        public int data;
+        public Node left;
+        public Node right;
+
+        public Node(int data)
+        {
+            this.data = data;
+            this.left = null;
+            this.right = null;
+        }
+
+
+    }
+
+    public class BinaryTree
+    {
+        int indx = -1;
+
+        public Node buildTree(int[] nodes)
+        {
+            indx++;
+            if (indx >= nodes.Length || nodes[indx] == -1)
+            {
+                return null;
+            }
+
+            Node newNode = new Node(nodes[indx]);
+            newNode.left = buildTree(nodes);
+            newNode.right = buildTree(nodes);
+            return newNode;
+        }
+
+        public void preorder(Node root)//O(n)
+        {
+            if (root == null)
+            {
+                return;
+            }
+
+            Console.Write(root.data+" ");
+
+            preorder(root.left);
+            preorder(root.right);
+        }
+        public void inorder(Node root)//O(n)
+        {
+            if(root == null)
+            {
+                return;
+            }
+            inorder(root.left);
+            Console.Write(root.data+" ");
+            inorder(root.right);
+        }
+        public void postorder(Node root)//O(n)
+        {
+            if (root == null)
+            {
+                return;
+            }
+            postorder(root.left);
+            postorder(root.right);
+            Console.Write(root.data + " ");
+
+        }
+        public bool IsEmpty(Node root)
+        {
+            return root == null;
+        }
+        public void levelorder(Node root)
+        {
+            if(root == null)
+            {
+                return;
+            }
+            Queue q = new Queue();
+            q.Enqueue(root);
+            q.Enqueue(null);
+
+            while (q.Count!=0)
+            {
+                Node currNode = (Node)q.Dequeue();
+
+                if(currNode == null)
+                {
+                    Console.WriteLine();
+                    if (q.Count == 0)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        q.Enqueue(null);
+                    }
+                }
+                else
+                {
+                    Console.Write(currNode.data + " ");
+                    if(currNode.left != null)
+                    {
+                        q.Enqueue(currNode.left);
+                    }
+                    if (currNode.right != null)
+                    {
+                        q.Enqueue(currNode.right);
+                    }
+                }
+            }
+
+        }
+        public static int countOfNodes(Node root)//O(n)
+        {
+            if(root == null)
+            {
+                return 0;
+            }
+            int leftCount = countOfNodes(root.left);
+            int rightCount = countOfNodes(root.right);
+
+            return leftCount + rightCount + 1;
+        }
+        public static int sumOfNodes(Node root)//O(n)
+        {
+            if (root == null)
+            {
+                return 0;
+            }
+            int leftSum = sumOfNodes(root.left);
+            int rightSum = sumOfNodes(root.right);
+
+            return leftSum + rightSum + root.data;
+        }
+
+        public static int heightOfNodes(Node root)//O(n)
+        {
+            if (root == null)
+            {
+                return 0;
+            }
+            int leftSum = heightOfNodes(root.left);
+            int rightSum = heightOfNodes(root.right);
+            int height = Math.Max(leftSum, rightSum)+1;
+            return height;
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
         {
-            HashSet<string> myhash1 = new HashSet<string>();
+            int[] nodes = { 1, 2, 4, -1, -1,5,-1,-1, 3, -1, 6, -1, -1 };
+            BinaryTree tree = new BinaryTree();
+            Node root = tree.buildTree(nodes);
+            Console.WriteLine(root.data);
+            tree.preorder(root);
+            Console.WriteLine();
+            tree.inorder(root);
+            Console.WriteLine();
+            tree.postorder(root);
+            Console.WriteLine();
+            tree.levelorder(root);
 
-            myhash1.Add("C");
-            myhash1.Add("C++");
-            myhash1.Add("C#");
-            myhash1.Add("Java");
-            myhash1.Add("Ruby");
+            Console.WriteLine(BinaryTree.countOfNodes(root));
+            Console.WriteLine(BinaryTree.sumOfNodes(root));
+            Console.WriteLine(BinaryTree.heightOfNodes(root));
 
-            foreach (var val in myhash1)
-            {
-                Console.WriteLine(val);
-            }
 
-            Console.WriteLine("-------------------------------");
 
-            HashSet<string> myhash2 = new HashSet<string>();
-
-            myhash2.Add("PHP");
-            myhash2.Add("C++");
-            myhash2.Add("Perl");
-            myhash2.Add("Java");
-
-            foreach (var val in myhash2)
-            {
-                Console.WriteLine(val);
-            }
-
-            Console.WriteLine("-------UnionWith-----");//The unique element present in both table 
-            myhash1.UnionWith(myhash2);
-            foreach (var val in myhash1)
-            {
-                Console.WriteLine(val);
-            }
-
-            Console.WriteLine("-------IntersectWith-----");//The element only present in both table
-            myhash1.IntersectWith(myhash2);
-            foreach (var val in myhash1)
-            {
-                Console.WriteLine(val);
-            }
-
-            Console.WriteLine("-------ExceptWith-----");//The element only present in table 2
-            myhash1.ExceptWith(myhash2);
-            foreach (var ele in myhash2)
-            {
-                Console.WriteLine(ele);
-            }
-
-            Console.ReadLine();
         }
     }
 }
